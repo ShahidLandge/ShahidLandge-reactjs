@@ -149,7 +149,7 @@ export const Home = () => {
   return (
     <>
       <div>
-        <div className="container my-5 py-5">
+        <div className="container my-2 py-5">
           <div className="row justify-content-center">
             {loading ? <Loading /> : <ShowProducts />}
           </div>

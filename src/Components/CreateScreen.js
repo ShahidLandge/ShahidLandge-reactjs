@@ -78,15 +78,15 @@ export const Create = () => {
     <>
       {console.log(product)}
       <div>
-        <div className="container my-5 py-5">
+        <div className="container my-2 py-3">
           <div className=" row d-flex justify-content-center">
             {loading ? (
               <Loading />
             ) : (
               product.name && (
                 <>
-                  <ShowProducts />
                   <h1>Product added successfully</h1>
+                  <ShowProducts />
                 </>
               )
             )}
