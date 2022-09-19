@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 export const Create = () => {
   const [product, setProduct] = useState({});
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     const requestOptions = {
       method: "POST",
@@ -22,6 +23,7 @@ export const Create = () => {
         developerEmail: "landgeshahid99@gmail.com"
       })
     };
+    setLoading(true);
     fetch(
       "https://upayments-studycase-api.herokuapp.com/api/products",
       requestOptions
@@ -30,44 +32,67 @@ export const Create = () => {
       .then((data) => {
         console.log(data);
         setProduct(data.product);
+        setLoading(false);
       });
   }, []);
+
+  const ShowProducts = () => {
+    return (
+      <>
+        <div className="col-md-3 my-3">
+          <div
+            className="card h-100 text-center p-4"
+            style={{ width: "18rem" }}
+            key={product._id}
+          >
+            <img
+              src={product.avatar}
+              alt="pic not found"
+              height="200px"
+              className="card-img-top"
+            />
+            <div className="card-body">
+              <h5 className="card-title mb-0">{product.name}</h5>
+              <p className="card-text lead fw-bold">&#8377;{product.price}</p>
+              <p className="card-text">{product.description}</p>
+              <p className="card-text fw-bold">
+                Developer - {product.developerEmail}
+              </p>
+            </div>
+          </div>
+        </div>
+      </>
+    );
+  };
+
+  const Loading = () => {
+    return (
+      <>
+        <h3>Loading Products....Please wait</h3>
+        <div className="loader"></div>
+      </>
+    );
+  };
+
   return (
     <>
-      <br />
-      <br />
-      {product.name ? (
-        <table>
-          <th>Category</th>
-          <th>Name</th>
-          <th>Description</th>
-          <th>Image</th>
-          <th>Price</th>
-          <th>Developer Email</th>
-          <tbody>
-            <tr>
-              <td>{product.category}</td>
-              <td>{product.name}</td>
-              <td>{product.description}</td>
-              <td>
-                <img
-                  src={product.avatar}
-                  alt="pic not found"
-                  width="150px"
-                  height="100px"
-                />
-              </td>
-              <td> &#8377; {product.price}</td>
-              <td>{product.developerEmail}</td>
-            </tr>
-          </tbody>
-        </table>
-      ) : (
-        <>
-          <h1>Loading....</h1>
-          <div className="loader"></div>
-        </>
-      )}
+      {console.log(product)}
+      <div>
+        <div className="container my-5 py-5">
+          <div className=" row d-flex justify-content-center">
+            {loading ? (
+              <Loading />
+            ) : (
+              product.name && (
+                <>
+                  <ShowProducts />
+                  <h1>Product added successfully</h1>
+                </>
+              )
+            )}
+          </div>
+        </div>
+      </div>
     </>
   );
 };

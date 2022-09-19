@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles.css";
 
 export const Home = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [data, setData] = useState(products);
   const [loading, setLoading] = useState(false);
@@ -60,90 +60,101 @@ export const Home = () => {
     setProducts(filter);
   };
 
+  const ShowProducts = () => {
+    return (
+      <>
+        <div className="buttons d-flex justify-content-center mb-5 pb-5 ">
+          <button
+            className="btn btn-outline-primary me-2"
+            onClick={() => setProducts(data)}
+          >
+            All Products
+          </button>
+          <button
+            className="btn btn-outline-primary me-2"
+            onClick={() => clothingFilter()}
+          >
+            Clothing{" "}
+          </button>
+          <button
+            className="btn btn-outline-primary me-2"
+            onClick={() => electronicsFilter()}
+          >
+            Electronics{" "}
+          </button>
+          <button
+            className="btn btn-outline-primary me-2"
+            onClick={() => furnitureFilter()}
+          >
+            Furniture{" "}
+          </button>
+          <button
+            className="btn btn-outline-primary me-2"
+            onClick={() => accessoriesFilter()}
+          >
+            Accessories{" "}
+          </button>
+          <button
+            className="btn btn-outline-primary me-2"
+            onClick={() => hobbyFilter()}
+          >
+            Hobby{" "}
+          </button>
+        </div>
+
+        {products.map((ele) => {
+          return (
+            <>
+              <div className="col-md-3 my-3">
+                <div className="card h-100 text-center p-4" key={ele._id}>
+                  <Link to={`details/${ele._id}`}>
+                    {" "}
+                    <img
+                      src={ele.avatar}
+                      alt="pic not found"
+                      height="200px"
+                      className="card-img-top"
+                    />{" "}
+                  </Link>
+                  <div className="card-body">
+                    <h5 className="card-title mb-0">
+                      <Link to={`details/${ele._id}`}> {ele.name} </Link>
+                    </h5>
+                    <p className="card-text lead fw-bold">&#8377;{ele.price}</p>
+                    <button
+                      className="btn btn-outline-dark"
+                      onClick={() => navigate(`details/${ele._id}`)}
+                    >
+                      Check Details
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </>
+          );
+        })}
+      </>
+    );
+  };
+
+  const Loading = () => {
+    return (
+      <>
+        <h3>Loading Products....Please wait</h3>
+        <div className="loader"></div>
+      </>
+    );
+  };
+
   return (
     <>
-      <br />
-      <br />
-      <button
-        className="btn btn-outline-primary mx-2"
-        onClick={() => setProducts(data)}
-      >
-        All Products
-      </button>
-      <button
-        className="btn btn-outline-primary mx-2"
-        onClick={() => clothingFilter()}
-      >
-        Clothing{" "}
-      </button>
-      <button
-        className="btn btn-outline-primary mx-2"
-        onClick={() => electronicsFilter()}
-      >
-        Electronics{" "}
-      </button>
-      <button
-        className="btn btn-outline-primary mx-2"
-        onClick={() => furnitureFilter()}
-      >
-        Furniture{" "}
-      </button>
-      <button
-        className="btn btn-outline-primary mx-2"
-        onClick={() => accessoriesFilter()}
-      >
-        Accessories{" "}
-      </button>
-      <button
-        className="btn btn-outline-primary mx-2"
-        onClick={() => hobbyFilter()}
-      >
-        Hobby{" "}
-      </button>
-      <br />
-      <br />
-      {!loading ? (
-        <table>
-          <th>Category</th>
-          <th>Name</th>
-          <th>Description</th>
-          <th>Image</th>
-          <th>Price</th>
-          <th>Developer Email</th>
-          {products.map((ele) => {
-            return (
-              <tbody key={ele._id}>
-                <tr>
-                  <td>{ele.category}</td>
-                  <td>
-                    <Link to={`details/${ele._id}`}> {ele.name} </Link>{" "}
-                  </td>
-                  <td>{ele.description}</td>
-                  <td>
-                    {/* <button onClick={() => navigate(`details/${ele._id}`)}> */}
-                    <Link to={`details/${ele._id}`}>
-                      <img
-                        src={ele.avatar}
-                        alt="pic not found"
-                        width="150px"
-                        height="100px"
-                      />
-                    </Link>
-                    {/* </button> */}
-                  </td>
-                  <td> &#8377; {ele.price}</td>
-                  <td>{ele.developerEmail}</td>
-                </tr>
-              </tbody>
-            );
-          })}
-        </table>
-      ) : (
-        <>
-          <h3>Loading Products....Please wait</h3>
-          <div className="loader"></div>
-        </>
-      )}
+      <div>
+        <div className="container my-5 py-5">
+          <div className="row justify-content-center">
+            {loading ? <Loading /> : <ShowProducts />}
+          </div>
+        </div>
+      </div>
     </>
   );
 };
