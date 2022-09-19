@@ -1,18 +1,18 @@
 const addItem = [];
 
 const ProductReducer = (state = addItem, action) => {
-  // console.log(action)
   switch (action.type) {
     case "ADD_ITEM":
-      // console.log(action.payload);
-      return [...state, action.payload];
+      let newState1 = [...state, action.payload];
+
+      return newState1;
       break;
 
     case "DEL_ITEM":
       let newState = state.filter((ele) => {
         console.log("element is");
         console.log(ele._id);
-        console.log(action.payload._id);
+        console.log(action.payload);
         return ele._id !== action.payload._id;
       });
       console.log("newStateis");
@@ -25,4 +25,5 @@ const ProductReducer = (state = addItem, action) => {
       break;
   }
 };
+
 export default ProductReducer;

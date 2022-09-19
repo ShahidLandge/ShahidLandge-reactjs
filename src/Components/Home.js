@@ -26,37 +26,36 @@ export const Home = () => {
       })
       .then((result) => {
         setLoading(false);
-        // console.log(result.products);
+
         setProducts(result.products);
         setData(result.products);
-        // console.log(data)
         setLoading(false);
       });
   }, []);
 
   const clothingFilter = () => {
     const filter = data.filter((ele) => ele.category === "Clothing");
-    // console.log(filter);
+
     setProducts(filter);
   };
   const electronicsFilter = () => {
     const filter = data.filter((ele) => ele.category === "Electronics");
-    // console.log(filter);
+
     setProducts(filter);
   };
   const furnitureFilter = () => {
     const filter = data.filter((ele) => ele.category === "Furniture");
-    // console.log(filter);
+
     setProducts(filter);
   };
   const accessoriesFilter = () => {
     const filter = data.filter((ele) => ele.category === "Accessories");
-    // console.log(filter);
+
     setProducts(filter);
   };
   const hobbyFilter = () => {
     const filter = data.filter((ele) => ele.category === "Hobby");
-    // console.log(filter);
+
     setProducts(filter);
   };
 

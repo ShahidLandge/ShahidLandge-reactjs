@@ -10,7 +10,7 @@ export const ProductDetails = () => {
   const [favbtn, setFavBtn] = useState("Add to Favourites");
   const params = useParams();
   const navigate = useNavigate();
-  // console.log(params)
+
   const [product, setProduct] = useState({});
   useEffect(() => {
     setLoading(true);
@@ -30,14 +30,12 @@ export const ProductDetails = () => {
       .then((resp) => resp.json())
       .then((data) => {
         setLoading(false);
-        // console.log(data.product);
         setProduct(data.product);
       });
   }, [params.id]);
 
   const dispatch = useDispatch();
   const handleFavourites = (product) => {
-    // console.log(product);
     if (favbtn === "Add to Favourites") {
       dispatch(addItem(product));
       setFavBtn("Remove from Favourites");
@@ -49,19 +47,15 @@ export const ProductDetails = () => {
   const ShowProducts = () => {
     return (
       <>
-        <div className="col-md-3 my-3">
-          <div
-            className="card h-100 text-center p-4"
-            style={{ width: "25rem" }}
-            key={product._id}
-          >
+        <div className="col-md-4 mb-3 ">
+          <div className="card h-100 text-center p-4" key={product._id}>
             <img
               src={product.avatar}
               alt="pic not found"
               height="200px"
               className="card-img-top"
             />
-            <div className="card-body mb-10">
+            <div className="card-body ">
               <h5 className="card-title mb-0">{product.name}</h5>
               <p className="card-text lead fw-bold">&#8377;{product.price}</p>
               <p className="card-text">{product.description}</p>

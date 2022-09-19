@@ -1,16 +1,20 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { deleteItem } from "../Redux/actions/ProductAction";
 
 export const Favourites = () => {
-  const state = useSelector((state) => state.ProductReducer);
-  // console.log(state.length);
+  const [del, setDel] = useState(true);
+  const state = JSON.parse(localStorage.getItem("localData"));
+  console.log("state is");
+  console.log(state);
   const dispatch = useDispatch();
 
   const handleDelete = (item) => {
     console.log("item is ");
     console.log(item);
     dispatch(deleteItem(item));
+    setDel(!del);
   };
   const ShowProducts = () => {
     return (
@@ -18,7 +22,7 @@ export const Favourites = () => {
         {state.map((ele) => {
           return (
             <>
-              <div className="col-md-4">
+              <div className="col-md-4 mb-3">
                 <div className="card h-100 text-center p-4" key={ele._id}>
                   <Link to={`details/${ele._id}`}>
                     {" "}
