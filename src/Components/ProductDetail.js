@@ -94,7 +94,7 @@ export const ProductDetails = () => {
     <>
       {console.log(product)}
       <div>
-        <div className="container my-5 py-5">
+        <div className="container my-2 py-5">
           <div className=" row d-flex justify-content-center">
             {loading ? (
               <Loading />

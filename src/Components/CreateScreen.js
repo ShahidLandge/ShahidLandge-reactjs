@@ -39,10 +39,10 @@ export const Create = () => {
   const ShowProducts = () => {
     return (
       <>
-        <div className="col-md-3 my-3">
+        <div className="col-md-5 my-3 d-flex justify-content-center">
           <div
             className="card h-100 text-center p-4"
-            style={{ width: "18rem" }}
+            style={{ width: "20rem" }}
             key={product._id}
           >
             <img

@@ -18,7 +18,7 @@ export const Favourites = () => {
         {state.map((ele) => {
           return (
             <>
-              <div className="col-md-3 my-3">
+              <div className="col-md-4">
                 <div className="card h-100 text-center p-4" key={ele._id}>
                   <Link to={`details/${ele._id}`}>
                     {" "}
@@ -53,10 +53,13 @@ export const Favourites = () => {
   return (
     <>
       <div>
-        <div className="container my-5 py-5">
+        <div className="container my-1 py-5">
           <div className="row justify-content-center">
             {state.length !== 0 ? (
-              <ShowProducts />
+              <>
+                <h1 className="mb-5"> My favourites </h1>
+                <ShowProducts />
+              </>
             ) : (
               <h1 className="my-5"> No favourites available </h1>
             )}
