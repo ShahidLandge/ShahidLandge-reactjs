@@ -63,39 +63,39 @@ export const Home = () => {
   const ShowProducts = () => {
     return (
       <>
-        <div className="buttons d-flex justify-content-center mb-5 pb-5 ">
+        <div className="buttons d-flex justify-content-center mb-5 pb-5 flex-wrap">
           <button
-            className="btn btn-outline-primary me-2"
+            className="btn btn-outline-primary me-2 mb-2"
             onClick={() => setProducts(data)}
           >
             All Products
           </button>
           <button
-            className="btn btn-outline-primary me-2"
+            className="btn btn-outline-primary me-2 mb-2"
             onClick={() => clothingFilter()}
           >
             Clothing{" "}
           </button>
           <button
-            className="btn btn-outline-primary me-2"
+            className="btn btn-outline-primary me-2 mb-2"
             onClick={() => electronicsFilter()}
           >
             Electronics{" "}
           </button>
           <button
-            className="btn btn-outline-primary me-2"
+            className="btn btn-outline-primary me-2 mb-2"
             onClick={() => furnitureFilter()}
           >
             Furniture{" "}
           </button>
           <button
-            className="btn btn-outline-primary me-2"
+            className="btn btn-outline-primary me-2 mb-2"
             onClick={() => accessoriesFilter()}
           >
             Accessories{" "}
           </button>
           <button
-            className="btn btn-outline-primary me-2"
+            className="btn btn-outline-primary me-2 mb-2"
             onClick={() => hobbyFilter()}
           >
             Hobby{" "}
