@@ -21,33 +21,31 @@ export const Favourites = () => {
       <>
         {state.map((ele) => {
           return (
-            <>
-              <div className="col-md-4 mb-3">
-                <div className="card h-100 text-center p-4" key={ele._id}>
-                  <Link to={`details/${ele._id}`}>
-                    {" "}
-                    <img
-                      src={ele.avatar}
-                      alt="pic not found"
-                      height="200px"
-                      className="card-img-top"
-                    />{" "}
-                  </Link>
-                  <div className="card-body">
-                    <h5 className="card-title mb-0">
-                      <Link to={`details/${ele._id}`}> {ele.name} </Link>
-                    </h5>
-                    <p className="card-text lead fw-bold">&#8377;{ele.price}</p>
-                    <button
-                      className="btn btn-outline-dark"
-                      onClick={() => handleDelete(ele)}
-                    >
-                      Delete
-                    </button>
-                  </div>
+            <div className="col-md-4 mb-3" key={ele._id}>
+              <div className="card h-100 text-center p-4">
+                <Link to={`details/${ele._id}`}>
+                  {" "}
+                  <img
+                    src={ele.avatar}
+                    alt="pic not found"
+                    height="200px"
+                    className="card-img-top"
+                  />{" "}
+                </Link>
+                <div className="card-body">
+                  <h5 className="card-title mb-0">
+                    <Link to={`details/${ele._id}`}> {ele.name} </Link>
+                  </h5>
+                  <p className="card-text lead fw-bold">&#8377;{ele.price}</p>
+                  <button
+                    className="btn btn-outline-dark"
+                    onClick={() => handleDelete(ele)}
+                  >
+                    Delete
+                  </button>
                 </div>
               </div>
-            </>
+            </div>
           );
         })}
       </>

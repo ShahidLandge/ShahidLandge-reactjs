@@ -2,13 +2,6 @@ import { Link } from "react-router-dom";
 
 export const Header = () => {
   return (
-    // <nav>
-    //   <Link to="/"> Home </Link>
-    //   <Link to="/details">Details </Link>
-    //   {/* <Link to="/create"> Create </Link> */}
-    //   <Link to="/favourites"> Favourites </Link>
-    // </nav>
-
     <nav className="navbar navbar-expand-lg bg-light py-3">
       <div className="container-fluid">
         <button

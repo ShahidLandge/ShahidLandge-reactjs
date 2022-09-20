@@ -1,7 +1,7 @@
 import { createStore } from "redux";
 import ProductReducer from "./reducers/ProductReducer";
-console.log("product reducer is");
-console.log(ProductReducer);
+// console.log("product reducer is");
+// console.log(ProductReducer);
 
 const LOCAL_STORAGE_NAME = "localData";
 

@@ -30,7 +30,7 @@ export const Create = () => {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setProduct(data.product);
         setLoading(false);
       });
@@ -38,30 +38,27 @@ export const Create = () => {
 
   const ShowProducts = () => {
     return (
-      <>
-        <div className="col-md-5 my-3 d-flex justify-content-center">
-          <div
-            className="card h-100 text-center p-4"
-            style={{ width: "20rem" }}
-            key={product._id}
-          >
-            <img
-              src={product.avatar}
-              alt="pic not found"
-              height="200px"
-              className="card-img-top"
-            />
-            <div className="card-body">
-              <h5 className="card-title mb-0">{product.name}</h5>
-              <p className="card-text lead fw-bold">&#8377;{product.price}</p>
-              <p className="card-text">{product.description}</p>
-              <p className="card-text fw-bold">
-                Developer - {product.developerEmail}
-              </p>
-            </div>
+      <div
+        className="col-md-5 my-3 d-flex justify-content-center"
+        key={product._id}
+      >
+        <div className="card h-100 text-center p-4" style={{ width: "20rem" }}>
+          <img
+            src={product.avatar}
+            alt="pic not found"
+            height="200px"
+            className="card-img-top"
+          />
+          <div className="card-body">
+            <h5 className="card-title mb-0">{product.name}</h5>
+            <p className="card-text lead fw-bold">&#8377;{product.price}</p>
+            <p className="card-text">{product.description}</p>
+            <p className="card-text fw-bold">
+              Developer - {product.developerEmail}
+            </p>
           </div>
         </div>
-      </>
+      </div>
     );
   };
 
@@ -76,7 +73,6 @@ export const Create = () => {
 
   return (
     <>
-      {console.log(product)}
       <div>
         <div className="container my-2 py-3">
           <div className=" row d-flex justify-content-center">

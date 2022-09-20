@@ -46,32 +46,30 @@ export const ProductDetails = () => {
   };
   const ShowProducts = () => {
     return (
-      <>
-        <div className="col-md-4 mb-3 ">
-          <div className="card h-100 text-center p-4" key={product._id}>
-            <img
-              src={product.avatar}
-              alt="pic not found"
-              height="200px"
-              className="card-img-top"
-            />
-            <div className="card-body ">
-              <h5 className="card-title mb-0">{product.name}</h5>
-              <p className="card-text lead fw-bold">&#8377;{product.price}</p>
-              <p className="card-text">{product.description}</p>
-              <p className="card-text fw-bold">
-                Developer - {product.developerEmail}
-              </p>
-              <button
-                className="btn btn-outline-dark"
-                onClick={() => handleFavourites(product)}
-              >
-                {favbtn}
-              </button>
-            </div>
+      <div className="col-md-4 mb-3 " key={product._id}>
+        <div className="card h-100 text-center p-4">
+          <img
+            src={product.avatar}
+            alt="pic not found"
+            height="200px"
+            className="card-img-top"
+          />
+          <div className="card-body ">
+            <h5 className="card-title mb-0">{product.name}</h5>
+            <p className="card-text lead fw-bold">&#8377;{product.price}</p>
+            <p className="card-text">{product.description}</p>
+            <p className="card-text fw-bold">
+              Developer - {product.developerEmail}
+            </p>
+            <button
+              className="btn btn-outline-dark"
+              onClick={() => handleFavourites(product)}
+            >
+              {favbtn}
+            </button>
           </div>
         </div>
-      </>
+      </div>
     );
   };
 
@@ -86,7 +84,6 @@ export const ProductDetails = () => {
 
   return (
     <>
-      {console.log(product)}
       <div>
         <div className="container my-2 py-5">
           <div className=" row d-flex justify-content-center">
